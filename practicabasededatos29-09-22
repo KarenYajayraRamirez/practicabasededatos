@@ -1,0 +1,41 @@
+CREATE DATABASE IF NOT EXISTS Prueba CHARACTER SET utf8;
+USE Prueba;
+
+CREATE TABLE Usuarios(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+  rol VARCHAR (100) NOT NULL UNIQUE ,
+  email VARCHAR (100) NOT NULL UNIQUE,
+  telefono VARCHAR (100) NOT NULL UNIQUE
+);
+ALTER TABLE Usuarios ADD COLUMN edad INT NOT NULL;
+ALTER TABLE Usuarios ADD COLUMN salario DECIMAL (5,2) NOT NULL;
+INSERT INTO Usuarios (rol,email,telefono,edad,salario)
+VALUE 
+("administrador", "adminysys@gmail.com","+52-65-13-45-96",28,489.32),
+("produccion2","produccion122@gmail.com","+52-53-81-19-112",32,256.48),
+("RHH","rrhh@gmail.com","+52-45-87-06-82",30,635.15),
+("mantenimiento","mantgen@gmail.com","+52-43.28-72-69",28,324.89),
+("produccion","produccion12@gmail.com","+52-53-81-19-11",32,256.48),
+("contyrol de calidad","cdccdc@gmail.com","+52-85-43-22-96",35,398.12),
+("contyrol de calidad7","cdccdc7@gmail.com","+52-85-43-22-967",10,398.12);
+#DELETE FROM  Usuarios WHERE id = 1 AND id = 5;
+#TRUNCATE TABLE Usuarios;
+#DROP TABLE Usuarios;
+
+USE Prueba;
+#DESCRIBE Usuarios;
+#SELECT * FROM Usuarios;
+#SELECT COUNT(id) AS Total_Usuarios FROM Usuarios;
+#SELECT * FROM Usuarios ORDER BY edad DESC;
+#SELECT * FROM Usuarios ORDER BY rol DESC;
+#SELECT COUNT(id) , rol FROM Usuarios GROUP BY rol;
+#SELECT rol,salario FROM Usuarios ORDER BY salario ASC;
+#SELECT COUNT(rol) AS TOTAL , salario FROM Usuarios GROUP BY salario;
+#SELECT 5*2;
+#SELECT 5+2;
+#SELECT 5 DIV 2;
+#SELECT 5-2;
+#SELECT 5 % 2;
+#SELECT salario*2 FROM Usuarios;
+#SELECT rol,edad,IF (edad>=30,"MAYOR DE EDAD","MENOR DE EDAD") AS Estado FROM Usuarios;
+SELECT rol,salario,IF(salario<=300, "MINIMO","MAXIMO") AS Eestado FROM Usuarios;
